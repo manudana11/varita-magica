@@ -53,13 +53,16 @@ for (let i = 0; i < allSect.length; i++) {
 
 for (let i = 0; i < allImg.length; i++) {
     allImg[i].addEventListener('mouseover', (e) => {
+        if (!e.target.dataset.src) {
+            e.target.dataset.src = e.target.src;
+        }
         e.target.src = './assets/magic-6.gif';
     });
 };
 
 for (let i = 0; i < allImg.length; i++) {
     allImg[i].addEventListener('mouseout', (e) => {
-        e.target.src = '';
+        e.target.src = e.target.dataset.src || '';
     });
 };
 
